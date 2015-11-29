@@ -1,7 +1,42 @@
 /* Header Styles */
 header {
-  box-shadow: 2px 2px 2px #ccc;
   padding: 10px 0;
+}
+
+nav {
+  text-align: center;
+}
+
+.site-navigation {
+  font-family: $droid;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: $darkgrey;
+    display: block;
+    padding: 10px;
+  }
+
+  li {
+    flex: none;
+    list-style: none;
+    margin: 0 25px;
+  }
+}
+
+.site-logo {
+  font-family: $work;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 48px;
+  color: $darkgrey;
+  letter-spacing: 8px;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .checkout-bag {
@@ -11,4 +46,13 @@ header {
   float: right;
   display:block;
   text-align: center;
+
+  span {
+    position: relative;
+    top: 13px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
