@@ -1,4 +1,4 @@
 #excluude node modules and images from source controll
-_build/node_modules/**
+build/node_modules/**
 img/**
 **.DS_Store**
