@@ -12,19 +12,33 @@
       <div class="container">
         <div class="row">
           <div class="col-8 col-off-2">
+              <h1><a href="" class="site-logo">Label</a></h1>
+          </div>
+          <div class="col-2">
+            <a href="" class="checkout-bag">
+              <span class="checkout-bag-badge">{{cart.length}}</span>
+            </a>
+            <div class="checkout-cart">
+              <h4>In Your Cart</h4>
+              <ul class="items">
+                <li ng-repeat="item in cart" class="item">
+                  <img ng-src="{{item.image}}" alt="">
+                  <p class="name">{{item.name}}</p>
+                  <span class="price">{{item.price | currency : $ : 0 }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 col-off-2">
             <nav>
-              <a href="" class="site-logo">Label</a>
               <ul class="site-navigation">
                 <li><a href="">All</a></li>
                 <li><a href="">Men</a></li>
                 <li><a href="">Women</a></li>
               </ul>
             </nav>
-          </div>
-          <div class="col-2">
-            <a href="" class="checkout-bag">
-              <span class="checkout-bag-badge">0</span>
-            </a>
           </div>
         </div>
       </div>
@@ -33,10 +47,10 @@
       <div class="container">
         <div class="row">
           <div class="col-4" ng-repeat="product in products">
-            <div class="item">
+            <div class="product">
               <img ng-src="{{product.image}}" alt="">
-              <h4 class="item-name">{{product.name}} - <span class="price">{{product.price | currency}}</span></h4>
-              <a href="" class="item-overlay" ng-click="addToCart(product)">View Product Details</a>
+              <h4 class="product-name">{{product.name}} - <span class="price">{{product.price | currency : $ : 0 }}</span></h4>
+              <a href="" class="product-overlay" ng-click="viewDetails(product)">View Product Details</a>
             </div>
           </div>
       </div>
@@ -46,6 +60,7 @@
         <h3>{{overlay.product.name}}</h3>
         <img ng-src="{{overlay.product.image}}" alt="overlay.name">
         <p class="description">{{overlay.product.details}}</p>
+        <a href="" ng-click="addToCart(overlay.product)">Add To Cart</a>
       </div>
     </div>
   </body>

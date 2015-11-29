@@ -1,26 +1,28 @@
 /* indclude module styles here or include separate module files from the modules directory */
 
-.item {
+.product {
   display: block;
   margin-bottom: 15px;
   position: relative;
 
   &:hover {
-    .item-overlay {
+    .product-overlay {
       opacity: 1;
       z-index: 1;
       text-decoration: none;
+      bottom: 0;
+      top: 0;
     }
   }
 }
 
-.item-overlay {
+.product-overlay {
   position: absolute;
   padding: 30px 0;
   max-height: 82px;
   background-color: rgba(255, 255, 255,.9);
-  top: 0;
-  bottom: 0;
+  top: -20%;
+  bottom: 100%;
   left: 0;
   right: 0;
   text-align: center;
@@ -28,10 +30,10 @@
   font-size: 16px;
   opacity: 0;
   z-index: 0;
-  transition: .2s ease all;
+  transition: .4s ease all;
 }
 
-.item-name {
+.product-name {
   text-align: center;
   margin-top: 15px;
 
