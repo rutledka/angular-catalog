@@ -34,7 +34,7 @@ gulp.task('build-css', function() {
 /* build js */
 
 gulp.task('build-js', function() {
-  gulp.src(['../js/grunts/*.js','../js/base.js'])
+  gulp.src(['../js/base.js', '../js/grunts/*.js'])
     .pipe(sourcemaps.init())
       .pipe(concat('main.compiled.js'))
       .pipe(gulp.dest('../js'))
