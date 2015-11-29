@@ -1,6 +1,3 @@
-/* add main sitewide js here */
-var app = angular.module('storeApp', []);
-
 "use strict";
 
 angular.module('storeApp')
@@ -13,15 +10,5 @@ angular.module('storeApp')
 
   $scope.addToCart = function(product) {
     console.log(product);
-  }
-});
-
-"use strict";
-
-angular.module('storeApp')
-.service('dataService', function($http) {
-  this.getProducts = function(callback) {
-    $http.get('../mock/products.json')
-    .then(callback);
   }
 });
