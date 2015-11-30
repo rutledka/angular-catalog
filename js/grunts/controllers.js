@@ -1,13 +1,13 @@
 "use strict";
 
 angular.module('storeApp')
-.controller ('mainCtrl', function($scope, dataService) {
+.controller('mainCtrl', function($scope, dataService, cartService) {
   //initialize our cart and overlay variables
   $scope.overlay = {
     "isActive": false,
   }
 
-  $scope.cart = [];
+  $scope.cart = cartService.cart;
 
   //get the products
   dataService.getProducts(function(response) {
@@ -21,19 +21,25 @@ angular.module('storeApp')
   };
 
   //add to cart - accepts product object as argument - pushes that object into our cart array
-  $scope.addToCart = function(product) {
-    $scope.cart.push(product);
-  };
+  // $scope.addToCart = function(product) {
+  //   $scope.cart.push(product);
+  // };
 
-  $scope.removeFromCart = function(item) {
-    console.log(item);
-    $scope.cart = $scope.cart.filter(function(el, index, array) {
-      console.log(el);
-      if(item.name == el.name){
-        console.log('same name');
-        return false;
-      }
-      return true;
-    });
-  };
+  $scope.addToCart = cartService.addToCart;
+})
+
+.controller('cartCtrl', function($scope, dataService, cartService) {
+  $scope.cart = cartService.cart;
+
+  //remove method here separates cart objects in mainCtrl and cartCtrl
+  // $scope.removeFromCart = function(product) {
+  //   $scope.cart = $scope.cart.filter(function(el, index, array) {
+  //     if(product.name == el.name){
+  //       console.log('removing product from cart');
+  //       return false;
+  //     }
+  //     return true;
+  //   });
+  // };
+
 });
